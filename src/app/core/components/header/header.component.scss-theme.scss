@@ -1,15 +1,12 @@
 @import "~@angular/material/theming";
 
 @mixin header-component-theme($theme) {
+  $primary: map-get($theme, primary);
   $background: map-get($theme, background);
 
-  app-header {
-    .header {
-      nav {
-        background-color: mat-color($background)
-      }
-    }
-
+  h1 {
+    color: mat-color($primary);
+    background-color: mat-color($background, hover);
   }
 
 }

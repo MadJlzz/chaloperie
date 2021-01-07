@@ -1,12 +1,14 @@
 // define 3 theme color
 // mat-palette accepts $palette-name, main, lighter and darker variants
-$chp-theme-primary: mat-palette($mat-indigo, 700, 300, 900);
-$chp-theme-accent: mat-palette($mat-light-blue);
-$chp-theme-warn: mat-palette($mat-deep-orange, A200);
+$primary: mat-palette($mat-indigo, 700, 300, 900);
+$accent: mat-palette($mat-light-blue);
+$warn: mat-palette($mat-deep-orange, A200);
 
 // create theme (use mat-dark-theme for themes with dark backgrounds)
-$chp-theme: mat-light-theme(
-    $chp-theme-primary,
-    $chp-theme-accent,
-    $chp-theme-warn
-);
+$theme: mat-light-theme((
+  color: (
+    primary: $primary,
+    accent: $accent,
+    warn: $warn
+  )
+));
