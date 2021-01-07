@@ -12,10 +12,8 @@
   @include header-component-theme($theme);
 }
 
-.default-theme {
-  @include angular-material-theme($chp-theme);
-  @include components-theme($chp-theme);
-}
+@include angular-material-theme($theme);
+@include components-theme($theme);
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
