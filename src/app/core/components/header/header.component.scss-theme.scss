@@ -3,7 +3,7 @@
 @mixin header-component-theme($theme) {
   $primary: map-get($theme, primary);
 
-  .container {
+  .nav-container {
     background-color: mat-color($primary);
 
     h2 {

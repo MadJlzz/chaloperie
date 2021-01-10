@@ -1,0 +1,54 @@
+.dashboard-container {
+  min-height: 100%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+}
+
+img {
+  display: block;
+  width: 250px;
+  height: 250px;
+  //max-width: 300px;
+  //max-height: 300px;
+  //border-radius: 50%;
+}
+
+//@media (0px <= width <= 599.9px) {
+//  img {
+//    display: block;
+//    width: 250px;
+//    height: 250px;
+//  }
+//}
+//
+//@media (600px <= width <= 959.9px) {
+//  img {
+//    display: block;
+//    width: 400px;
+//    height: 400px;
+//  }
+//}
+//
+//@media (960px <= width <= 1279.9px) {
+//  img {
+//    display: block;
+//    width: 600px;
+//    height: 600px;
+//  }
+//}
+
+//@media (1280px <= width <= 1919.9px) {
+//  img {
+//
+//  }
+//}
+//
+//@media (1920px <= width <= 4999.99px) {
+//  img {
+//
+//  }
+//}
