@@ -2,11 +2,14 @@
 
 @mixin header-component-theme($theme) {
   $primary: map-get($theme, primary);
-  $background: map-get($theme, background);
 
-  h1 {
-    color: mat-color($primary);
-    background-color: mat-color($background, hover);
+  .container {
+    background-color: mat-color($primary);
+
+    h2 {
+      color: white;
+    }
+
   }
 
 }
