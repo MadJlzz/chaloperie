@@ -8,47 +8,62 @@
 
 }
 
-img {
-  display: block;
-  width: 250px;
-  height: 250px;
-  //max-width: 300px;
-  //max-height: 300px;
-  //border-radius: 50%;
+@media screen and (min-width: 0px) {
+  .dashboard-container {
+    img {
+      display: block;
+      width: 150px;
+      height: 150px;
+    }
+  }
 }
 
-//@media (0px <= width <= 599.9px) {
-//  img {
-//    display: block;
-//    width: 250px;
-//    height: 250px;
-//  }
-//}
-//
-//@media (600px <= width <= 959.9px) {
-//  img {
-//    display: block;
-//    width: 400px;
-//    height: 400px;
-//  }
-//}
-//
-//@media (960px <= width <= 1279.9px) {
-//  img {
-//    display: block;
-//    width: 600px;
-//    height: 600px;
-//  }
-//}
+@media screen and (min-width: 599.9px) {
+  .dashboard-container {
+    img {
+      display: block;
+      width: 300px;
+      height: 300px;
+    }
+  }
+}
 
-//@media (1280px <= width <= 1919.9px) {
-//  img {
-//
-//  }
-//}
-//
-//@media (1920px <= width <= 4999.99px) {
-//  img {
-//
-//  }
-//}
+@media screen and (min-width: 959.9px) {
+  .dashboard-container {
+    img {
+      display: block;
+      width: 450px;
+      height: 450px;
+    }
+  }
+}
+
+@media screen and (min-width: 1279.9px) {
+  .dashboard-container {
+    img {
+      display: block;
+      width: 600px;
+      height: 600px;
+    }
+  }
+}
+
+@media screen and (min-width: 1919.9px) {
+  .dashboard-container {
+    img {
+      display: block;
+      width: 750px;
+      height: 750px;
+    }
+  }
+}
+
+@media screen and (min-width: 4999.99px) {
+  .dashboard-container {
+    img {
+      display: block;
+      width: 900px;
+      height: 900px;
+    }
+  }
+}
