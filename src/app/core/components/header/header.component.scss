@@ -1,4 +1,4 @@
-.container {
+.nav-container {
   display: flex;
   align-items: center;
   padding: 8px 16px;
@@ -17,6 +17,6 @@
 
 }
 
-.container > :nth-child(2) {
+.nav-container > :nth-child(2) {
   margin-right: auto;
 }
