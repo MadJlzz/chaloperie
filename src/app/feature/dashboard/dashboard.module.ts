@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
+import { CoreComponentModule } from '../../core/components/components.module';
 import { DashboardComponent } from './dashboard.component';
 
 @NgModule({
-  imports: [],
+  imports: [CoreComponentModule],
   exports: [
     DashboardComponent
   ],
