@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Layout } from '../../../shared/enums/layout.enum';
 
 @Component({
@@ -6,15 +6,17 @@ import { Layout } from '../../../shared/enums/layout.enum';
   templateUrl: './cat.component.html',
   styleUrls: ['./cat.component.scss']
 })
-export class CatComponent implements OnInit {
+export class CatComponent implements OnChanges {
 
   @Input()
   public layout: Layout;
 
   constructor() { }
 
-  ngOnInit(): void {
-    console.log(this.layout);
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes.layout.previousValue !== changes.layout.currentValue) {
+      console.log('New layout!', this.layout);
+    }
   }
 
 }
