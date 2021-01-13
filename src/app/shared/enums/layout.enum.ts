@@ -22,7 +22,6 @@ export class Layout {
   }
 
   public static from(mediaQuery: string): Layout {
-    console.log('Media', mediaQuery);
     return Layout.values().find(layout => layout.mediaQuery === mediaQuery);
   }
 
