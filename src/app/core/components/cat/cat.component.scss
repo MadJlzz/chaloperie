@@ -1,8 +1,8 @@
-.example-card {
+.cat-card {
   max-width: 280px;
 }
 
-.example-header-image {
-  background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-  background-size: cover;
+.cat-image {
+  max-height: 250px;
+  object-fit: cover;
 }
