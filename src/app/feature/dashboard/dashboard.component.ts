@@ -1,15 +1,41 @@
-import { Component, OnInit } from '@angular/core';
+import { BreakpointObserver } from '@angular/cdk/layout';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import { map } from 'rxjs/operators';
+import { Layout } from '../../shared/enums/layout.enum';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: 'dashboard.component.html',
   styleUrls: [ 'dashboard.component.scss' ]
 })
-export class DashboardComponent implements OnInit {
+export class DashboardComponent implements OnInit, OnDestroy {
 
-  constructor() { }
+  private layoutChangeValue;
+  private layoutChangeSubscription: Subscription;
+
+  constructor(private readonly breakpointObserver: BreakpointObserver) {
+  }
+
+  public get LayoutChangeValue(): Layout {
+    return this.layoutChangeValue;
+  }
 
   ngOnInit(): void {
+    const layoutStyles = Layout.values()
+      .map(layout => layout.MediaQuery);
+
+    const layoutChanges = this.breakpointObserver.observe(layoutStyles);
+
+    this.layoutChangeSubscription = layoutChanges.subscribe(result => {
+      this.layoutChangeValue = Object.entries(result.breakpoints)
+        .filter(breakpoint => breakpoint[1] === true)
+        .map(breakpoint => Layout.from(breakpoint[0]));
+    });
+  }
+
+  ngOnDestroy(): void {
+    this.layoutChangeSubscription.unsubscribe();
   }
 
 }
