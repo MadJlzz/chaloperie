@@ -28,9 +28,9 @@ export class DashboardComponent implements OnInit, OnDestroy {
     const layoutChanges = this.breakpointObserver.observe(layoutStyles);
 
     this.layoutChangeSubscription = layoutChanges.subscribe(result => {
-      this.layoutChangeValue = Object.entries(result.breakpoints)
-        .filter(breakpoint => breakpoint[1] === true)
-        .map(breakpoint => Layout.from(breakpoint[0]));
+      const breakpoint = Object.entries(result.breakpoints)
+        .find(([mediaQuery, matched]) => matched === true);
+      this.layoutChangeValue = Layout.from(breakpoint[0]);
     });
   }
 
