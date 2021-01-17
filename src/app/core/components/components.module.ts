@@ -2,8 +2,9 @@ import { NgModule } from '@angular/core';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatIconModule } from '@angular/material/icon';
-import { HeaderComponent } from './header/header.component';
 import { CatComponent } from './cat/cat.component';
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   imports: [
@@ -13,9 +14,10 @@ import { CatComponent } from './cat/cat.component';
   ],
   exports: [
     HeaderComponent,
-    CatComponent
+    CatComponent,
+    FooterComponent
   ],
-  declarations: [HeaderComponent, CatComponent],
+  declarations: [HeaderComponent, CatComponent, FooterComponent],
   providers: [],
 })
 export class CoreComponentModule {

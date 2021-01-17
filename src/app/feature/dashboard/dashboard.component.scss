@@ -1,73 +1,7 @@
 .dashboard-container {
-  min-height: 100%;
-
   display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-
-}
-
-.dashboard-container img {
-  border-radius: 30%;
-}
-
-@media screen and (min-width: 0px) {
-  .dashboard-container {
-    img {
-      display: block;
-      width: 150px;
-      height: 150px;
-    }
-  }
-}
-
-@media screen and (min-width: 599.9px) {
-  .dashboard-container {
-    img {
-      display: block;
-      width: 300px;
-      height: 300px;
-    }
-  }
-}
-
-@media screen and (min-width: 959.9px) {
-  .dashboard-container {
-    img {
-      display: block;
-      width: 450px;
-      height: 450px;
-    }
-  }
-}
-
-@media screen and (min-width: 1279.9px) {
-  .dashboard-container {
-    img {
-      display: block;
-      width: 600px;
-      height: 600px;
-    }
-  }
-}
-
-@media screen and (min-width: 1919.9px) {
-  .dashboard-container {
-    img {
-      display: block;
-      width: 750px;
-      height: 750px;
-    }
-  }
-}
-
-@media screen and (min-width: 4999.99px) {
-  .dashboard-container {
-    img {
-      display: block;
-      width: 900px;
-      height: 900px;
-    }
-  }
+  flex-flow: row wrap;
+  align-content: space-evenly;
+  justify-content: space-evenly;
+  height: calc(100% - 56px - 32px);
 }
