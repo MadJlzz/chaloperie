@@ -3,5 +3,15 @@
   flex-flow: row wrap;
   align-content: space-evenly;
   justify-content: space-evenly;
-  height: calc(100% - 56px - 32px);
+  //height: calc(100% - 56px - 32px);
+}
+
+@media all and (max-width: 432px) {
+  .dashboard-container {
+    flex-flow: column wrap;
+  }
+}
+
+.dashboard-item {
+  padding: 20px;
 }
