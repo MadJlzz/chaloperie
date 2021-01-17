@@ -1,22 +1,20 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { Layout } from '../../../shared/enums/layout.enum';
+import { Component, Input, OnInit } from '@angular/core';
+import { Cat } from '../../../shared/models/cat.model';
 
 @Component({
   selector: 'app-cat',
   templateUrl: './cat.component.html',
   styleUrls: ['./cat.component.scss']
 })
-export class CatComponent implements OnChanges {
+export class CatComponent implements OnInit {
 
   @Input()
-  public layout: Layout;
+  public cat: Cat;
 
-  constructor() { }
+  constructor() {
+  }
 
-  ngOnChanges(changes: SimpleChanges): void {
-    if (changes.layout.previousValue !== changes.layout.currentValue) {
-      console.log('New layout!', this.layout);
-    }
+  ngOnInit(): void {
   }
 
 }
