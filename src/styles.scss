@@ -8,13 +8,9 @@
 
 // Components theme
 @import "app/core/components/header/header.component.scss-theme";
-@import "app/core/components/footer/footer.component.scss-theme";
-@import "app/feature/dashboard/dashboard.component.scss-theme";
 
 @mixin components-theme($theme) {
   @include header-component-theme($theme);
-  @include footer-component-theme($theme);
-  @include dashboard-component-theme($theme);
 }
 
 @include angular-material-theme($theme);
@@ -28,4 +24,5 @@ html, body {
 
 body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
+  background-color: map-get(map-get($theme, background), background);
 }
