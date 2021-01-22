@@ -6,7 +6,7 @@
       <mat-card-subtitle>{{ cat.date }}</mat-card-subtitle>
     </mat-card-header>
     <p>
-      {{ cat.description }}
+      {{ cat.description | slice:0:200 }}
     </p>
   </mat-card-content>
   <mat-card-actions>
