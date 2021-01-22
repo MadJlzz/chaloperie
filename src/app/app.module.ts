@@ -6,11 +6,11 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
-import { DashboardModule } from './feature/dashboard/dashboard.module';
+import { FeatureModule } from './feature/feature.module';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     AppRoutingModule,
@@ -18,7 +18,7 @@ import { DashboardModule } from './feature/dashboard/dashboard.module';
     BrowserModule,
     BrowserAnimationsModule,
     CoreModule,
-    DashboardModule
+    FeatureModule
   ],
   providers: [],
   bootstrap: [AppComponent]
