@@ -1,0 +1,10 @@
+@import "~@angular/material/theming";
+
+@mixin dashboard-component-theme($theme) {
+  $background: map-get($theme, background);
+
+  .dashboard-container {
+    background-color: mat-color($background, background);
+  }
+
+}

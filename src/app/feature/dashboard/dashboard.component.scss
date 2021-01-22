@@ -5,12 +5,12 @@
   justify-content: space-evenly;
 }
 
+.dashboard-item {
+  padding: 20px;
+}
+
 @media all and (max-width: 432px) {
   .dashboard-container {
     flex-flow: column wrap;
   }
-}
-
-.dashboard-item {
-  padding: 20px;
 }
