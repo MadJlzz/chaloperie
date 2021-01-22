@@ -12,4 +12,9 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  onFileChange($event): void {
+    console.log('Hey there!');
+    console.log($event);
+  }
+
 }

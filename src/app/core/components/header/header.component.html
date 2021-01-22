@@ -2,7 +2,8 @@
     <img src="/assets/img/logo_v4_white.png" alt="Website logo"/>
     <h2>Chaloperie</h2>
 
-    <button mat-mini-fab aria-label="add a new cat to chaloperie">
+    <input hidden (change)="onFileChange($event)" #fileInput type="file" id="file">
+    <button mat-mini-fab aria-label="add a new cat to chaloperie" (click)="fileInput.click()">
       <mat-icon>add</mat-icon>
     </button>
 </nav>
