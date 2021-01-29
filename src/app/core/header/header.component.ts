@@ -12,6 +12,7 @@ export class HeaderComponent {
   }
 
   onFileChange($event): void {
+    console.log($event);
     if (typeof (FileReader) !== 'undefined') {
       const reader = new FileReader();
 

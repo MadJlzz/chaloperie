@@ -4,7 +4,7 @@
 
     <!-- TODO: maybe have to rethink that to only route on click button and add image after... -->
     <!-- For now it works! -->
-    <input hidden (change)="onFileChange($event)" #fileInput type="file" id="file">
+    <input hidden (change)="onFileChange($event)" #fileInput type="file" id="file" accept="image/*">
     <button mat-mini-fab aria-label="add a new cat to chaloperie" (click)="fileInput.click()">
       <mat-icon>add</mat-icon>
     </button>

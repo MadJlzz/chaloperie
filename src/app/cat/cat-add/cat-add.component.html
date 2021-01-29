@@ -1,3 +1,20 @@
-<h1>Cat creation</h1>
+<form class="cat-add-container" [formGroup]="form">
 
-<p>Need to write the component to create a cat and send it to the backend.</p>
+  <img src="" alt="preview of the cat image to add" class="cat-preview" #previewImg />
+
+  <mat-form-field appearance="fill" hintLabel="Max 30 characters">
+    <mat-label>Title of the new Cat!</mat-label>
+    <input matInput #titleInput maxlength="30" placeholder="Miaou?">
+    <mat-hint align="end">{{titleInput.value?.length || 0}}/30</mat-hint>
+  </mat-form-field>
+
+  <mat-form-field appearance="fill" hintLabel="Max 500 characters">
+    <mat-label>What did that handsome devil do?</mat-label>
+    <textarea matInput #descriptionInput maxlength="500" placeholder="R.I.P wonderful glass that was laying on the table"></textarea>
+    <mat-hint align="end">{{descriptionInput.value?.length || 0}}/500</mat-hint>
+  </mat-form-field>
+
+  <button class="cat-save-button" mat-raised-button color="accent">Save Cat!</button>
+
+</form>
+

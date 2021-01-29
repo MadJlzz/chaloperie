@@ -1,0 +1,22 @@
+.cat-add-container {
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
+}
+
+.cat-preview {
+  flex: 1;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 5px;
+  margin: 12px 10px;
+}
+
+.cat-save-button {
+  margin: 12px 10px;
+}
+
+.mat-form-field {
+  width: 100%;
+  margin: 12px 10px;
+}
