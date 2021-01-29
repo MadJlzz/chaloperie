@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Cat } from '../cat.model';
 
 @Component({
@@ -6,15 +6,15 @@ import { Cat } from '../cat.model';
   templateUrl: './cat-card.component.html',
   styleUrls: ['./cat-card.component.scss']
 })
-export class CatCardComponent implements OnInit {
+export class CatCardComponent {
 
   @Input()
   public cat: Cat;
 
-  constructor() {
-  }
+  liked = false;
 
-  ngOnInit(): void {
+  onLikeClick(): void {
+    this.liked = !this.liked;
   }
 
 }

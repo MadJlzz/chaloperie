@@ -6,11 +6,13 @@
       <mat-card-subtitle>{{ cat.date }}</mat-card-subtitle>
     </mat-card-header>
     <p>
-      {{ cat.description | slice:0:200 }}
+      {{ cat.description | slice:0:255 }}
     </p>
   </mat-card-content>
   <mat-card-actions>
-    <button mat-button>LIKE</button>
-    <button mat-button>SHARE</button>
+    <button mat-icon-button color="warn" aria-label="Example icon button with a heart icon" (click)="onLikeClick()">
+      <mat-icon *ngIf="liked">favorite</mat-icon>
+      <mat-icon *ngIf="!liked">favorite_border</mat-icon>
+    </button>
   </mat-card-actions>
 </mat-card>
