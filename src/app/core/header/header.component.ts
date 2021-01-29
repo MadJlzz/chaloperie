@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
@@ -6,11 +6,9 @@ import { Router } from '@angular/router';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
+export class HeaderComponent {
 
-  constructor(private readonly router: Router) { }
-
-  ngOnInit(): void {
+  constructor(private readonly router: Router) {
   }
 
   onFileChange($event): void {
@@ -20,7 +18,7 @@ export class HeaderComponent implements OnInit {
       reader.onload = () => {
         console.log(reader.result);
         this.router.navigateByUrl('/add', {
-          state: { imageData: reader.result }
+          state: {imageData: reader.result}
         });
       };
 
