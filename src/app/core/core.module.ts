@@ -1,13 +1,24 @@
 import { NgModule } from '@angular/core';
-import { CoreComponentModule } from './components/components.module';
-import { ProvidersModule } from './providers/providers.module';
-
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { RouterModule } from '@angular/router';
+import { FooterComponent } from './footer/footer.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
-  imports: [ProvidersModule],
-  exports: [CoreComponentModule],
-  declarations: [],
-  providers: [],
+  imports: [
+    MatButtonModule,
+    MatIconModule,
+    RouterModule
+  ],
+  declarations: [
+    HeaderComponent,
+    FooterComponent
+  ],
+  exports: [
+    HeaderComponent,
+    FooterComponent
+  ],
 })
 export class CoreModule {
 }
