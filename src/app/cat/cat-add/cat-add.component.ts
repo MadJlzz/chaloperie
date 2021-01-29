@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-add-cat',
-  templateUrl: './add-cat.component.html',
-  styleUrls: ['./add-cat.component.scss']
+  selector: 'chp-cat-add',
+  templateUrl: './cat-add.component.html',
+  styleUrls: ['./cat-add.component.scss']
 })
-export class AddCatComponent implements OnInit {
+export class CatAddComponent implements OnInit {
 
   imageData: ArrayBuffer;
 

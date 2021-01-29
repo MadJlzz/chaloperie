@@ -2,15 +2,15 @@ import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
 import { Layout } from '../../shared/enums/layout.enum';
-import { CATS } from '../../shared/mocks/cat.mock';
-import { Cat } from '../../shared/models/cat.model';
+import { CATS } from '../cat.mock';
+import { Cat } from '../cat.model';
 
 @Component({
-  selector: 'app-dashboard',
-  templateUrl: 'dashboard.component.html',
-  styleUrls: ['dashboard.component.scss']
+  selector: 'chp-catboard',
+  templateUrl: 'catboard.component.html',
+  styleUrls: ['catboard.component.scss']
 })
-export class DashboardComponent implements OnInit, OnDestroy {
+export class CatboardComponent implements OnInit, OnDestroy {
 
   private layoutChangeValue;
   private layoutChangeSubscription: Subscription;

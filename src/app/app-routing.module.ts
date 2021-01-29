@@ -1,12 +1,9 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { AddCatComponent } from './feature/add-cat/add-cat.component';
-import { DashboardComponent } from './feature/dashboard/dashboard.component';
 
 const APP_ROUTES: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'dashboard' },
-  { path: 'dashboard', component: DashboardComponent },
-  { path: 'add', component: AddCatComponent }
+  {path: '', pathMatch: 'full', redirectTo: 'catboard'},
+  {path: 'catboard', loadChildren: () => import('./cat/cat.module').then(m => m.CatModule)}
 ];
 
 @NgModule({
