@@ -1,42 +1,70 @@
-import { AfterViewInit, Component, ElementRef, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
-import { Router } from '@angular/router';
+import { Component } from '@angular/core';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { MatDialog } from '@angular/material/dialog';
+import { DialogCropperComponent } from '../../core/dialog-cropper/dialog-cropper.component';
 
 @Component({
   selector: 'chp-cat-add',
   templateUrl: './cat-add.component.html',
   styleUrls: ['./cat-add.component.scss']
 })
-export class CatAddComponent implements OnInit, AfterViewInit {
+export class CatAddComponent {
 
-  @ViewChild('previewImg')
-  imgRef: ElementRef;
+  /**
+   * Name of the selected image.
+   */
+  selectedFileName: string;
 
+  /**
+   * Form related attributes to save a cat.
+   */
   form: FormGroup;
-  titleControl = new FormControl('title');
-  descriptionControl = new FormControl('description');
 
-  private readonly imageData: ArrayBuffer;
-  private readonly imageObjectUrl: string;
+  /**
+   * Title of a cat post.
+   */
+  titleControl = new FormControl('',
+    [
+      Validators.required,
+      Validators.minLength(5),
+      Validators.maxLength(30)
+    ]);
 
-  constructor(private readonly router: Router, private readonly formBuilder: FormBuilder) {
-    this.imageData = this.router.getCurrentNavigation().extras.state?.imageData;
-    this.imageObjectUrl = URL.createObjectURL(new Blob([this.imageData]));
+  /**
+   * Description of the cat's trickery.
+   */
+  descriptionControl = new FormControl('');
 
+  /**
+   * Image data of a cat.
+   */
+  imageControl = new FormControl('', Validators.required);
+
+  constructor(private readonly formBuilder: FormBuilder, private readonly dialog: MatDialog) {
     this.form = this.formBuilder.group({
-      title: this.titleControl,
-      description: this.descriptionControl
+      titleControl: this.titleControl,
+      descriptionControl: this.descriptionControl,
+      imageControl: this.imageControl,
     });
   }
 
-  ngOnInit(): void {
-    if (this.imageData == null) {
-      this.router.navigateByUrl('/catboard');
-    }
+  onFileChange($event: any): void {
+    this.selectedFileName = $event.target.files.item(0).name;
+
+    const dialogRef = this.dialog.open(DialogCropperComponent, {
+      data: {inputFile: $event.target.files[0]}
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (!result) {
+        this.selectedFileName = '';
+      }
+      this.imageControl.setValue(result);
+    });
   }
 
-  ngAfterViewInit(): void {
-    this.imgRef.nativeElement.src = this.imageObjectUrl;
+  onSubmit(): void {
+    console.error('NotImplementedError: CALL THE BACKEND THERE.');
   }
 
 }
