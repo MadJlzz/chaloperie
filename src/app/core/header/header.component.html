@@ -1,11 +1,8 @@
 <nav class="nav-container">
-    <img routerLink="/" src="/assets/img/logo_v4_white.png" alt="Website logo"/>
-    <h2>Chaloperie</h2>
+  <img routerLink="/" src="/assets/img/logo_v4_white.png" alt="Website logo"/>
+  <h2>Chaloperie</h2>
 
-    <!-- TODO: maybe have to rethink that to only route on click button and add image after... -->
-    <!-- For now it works! -->
-    <input hidden (change)="onFileChange($event)" #fileInput type="file" id="file" accept="image/*">
-    <button mat-mini-fab aria-label="add a new cat to chaloperie" (click)="fileInput.click()">
-      <mat-icon>add</mat-icon>
-    </button>
+  <button routerLink="/add" mat-mini-fab aria-label="add a new cat to chaloperie">
+    <mat-icon>add</mat-icon>
+  </button>
 </nav>

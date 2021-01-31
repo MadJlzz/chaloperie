@@ -1,0 +1,18 @@
+<h1 mat-dialog-title>Crop his face!</h1>
+<div mat-dialog-content>
+  <p *ngIf="errorMessage">{{ errorMessage }}</p>
+  <image-cropper
+    [imageFile]="data.inputFile"
+    [maintainAspectRatio]="true"
+    [aspectRatio]="4 / 3"
+    [resizeToWidth]="432"
+    [resizeToHeight]="400"
+    format="png"
+    (imageCropped)="imageCropped($event)"
+    (loadImageFailed)="loadImageFailed()"
+  ></image-cropper>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Go Back</button>
+  <button mat-button *ngIf="!errorMessage" [mat-dialog-close]="croppedImage" cdkFocusInitial>Done</button>
+</div>
