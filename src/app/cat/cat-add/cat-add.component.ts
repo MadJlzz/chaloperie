@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogCropperComponent } from '../../core/dialog-cropper/dialog-cropper.component';
@@ -9,6 +9,12 @@ import { DialogCropperComponent } from '../../core/dialog-cropper/dialog-cropper
   styleUrls: ['./cat-add.component.scss']
 })
 export class CatAddComponent {
+
+  /**
+   * Reference to the image's input.
+   */
+  @ViewChild('fileInput')
+  fileInput: any;
 
   /**
    * Name of the selected image.
@@ -59,6 +65,7 @@ export class CatAddComponent {
       if (!result) {
         this.selectedFileName = '';
       }
+      this.fileInput.nativeElement.value = '';
       this.imageControl.setValue(result);
     });
   }
