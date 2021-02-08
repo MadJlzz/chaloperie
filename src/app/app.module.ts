@@ -5,6 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 
 import { AppComponent } from './app.component';
 import { CatModule } from './cat/cat.module';
+import { CoreProvidersModule } from './core-providers/core-providers.module';
 import { CoreModule } from './core/core.module';
 
 @NgModule({
@@ -13,7 +14,8 @@ import { CoreModule } from './core/core.module';
     BrowserModule,
     BrowserAnimationsModule,
     CatModule,
-    CoreModule
+    CoreModule,
+    CoreProvidersModule
   ],
   declarations: [
     AppComponent,

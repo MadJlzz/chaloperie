@@ -6,6 +6,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatSnackBarModule } from '@angular/material/snack-bar';
 import { CatAddComponent } from './cat-add/cat-add.component';
 import { CatCardComponent } from './cat-card/cat-card.component';
 import { CatRoutingModule } from './cat-routing.module';
@@ -20,6 +21,7 @@ import { CatboardComponent } from './catboard/catboard.component';
     MatFormFieldModule,
     MatIconModule,
     MatInputModule,
+    MatSnackBarModule,
     ReactiveFormsModule
   ],
   declarations: [

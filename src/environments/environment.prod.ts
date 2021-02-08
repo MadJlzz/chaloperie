@@ -1,3 +1,5 @@
 export const environment = {
-  production: true
+  production: true,
+  apiReadBaseURL: 'http://GCF/',
+  apiWriteBaseURL: 'http://GCF/'
 };

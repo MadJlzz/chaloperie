@@ -1,0 +1,8 @@
+{
+  "/api/write": {
+    "target": "http://localhost:8080/api/write",
+    "changeOrigin": true,
+    "secure": false,
+    "logLevel": "debug"
+  }
+}

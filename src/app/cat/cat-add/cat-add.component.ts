@@ -1,6 +1,8 @@
 import { Component, ViewChild } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatDialog } from '@angular/material/dialog';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { CatService } from '../../core-providers/cat.service';
 import { DialogCropperComponent } from '../../core/dialog-cropper/dialog-cropper.component';
 
 @Component({
@@ -46,7 +48,8 @@ export class CatAddComponent {
    */
   imageControl = new FormControl('', Validators.required);
 
-  constructor(private readonly formBuilder: FormBuilder, private readonly dialog: MatDialog) {
+  constructor(private readonly formBuilder: FormBuilder, private readonly catService: CatService,
+              private readonly snackBar: MatSnackBar, private readonly dialog: MatDialog) {
     this.form = this.formBuilder.group({
       titleControl: this.titleControl,
       descriptionControl: this.descriptionControl,
@@ -71,7 +74,15 @@ export class CatAddComponent {
   }
 
   onSubmit(): void {
-    console.error('NotImplementedError: CALL THE BACKEND THERE.');
+    this.catService.create(
+      {
+        title: this.titleControl.value,
+        description: this.descriptionControl.value,
+        pictureURL: this.imageControl.value
+      }
+    ).subscribe(
+      value => console.log('Success!'),
+      error => this.snackBar.open(error, 'Ok', {duration: 2000})
+    );
   }
-
 }
