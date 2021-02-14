@@ -11,6 +11,9 @@ import { environment } from '../../environments/environment';
   providers: [
     {
       provide: 'API_WRITE_BASE_URL', useValue: environment.apiWriteBaseURL
+    },
+    {
+      provide: 'API_READ_BASE_URL', useValue: environment.apiReadBaseURL
     }
   ]
 })

@@ -5,7 +5,7 @@
 export const environment = {
   production: false,
   apiReadBaseURL: 'http://localhost:8080',
-  apiWriteBaseURL: 'http://localhost:8080'
+  apiWriteBaseURL: 'http://localhost:8090'
 };
 
 /*

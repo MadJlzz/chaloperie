@@ -8,7 +8,9 @@ import { CoreProvidersModule } from './core-providers.module';
 @Injectable({providedIn: CoreProvidersModule})
 export class CatService {
 
-  constructor(@Inject('API_WRITE_BASE_URL') private readonly apiWriteURL: string, private readonly httpClient: HttpClient) {
+  constructor(@Inject('API_WRITE_BASE_URL') private readonly apiWriteURL: string,
+              @Inject('API_READ_BASE_URL') private readonly apiReadURL: string,
+              private readonly httpClient: HttpClient) {
   }
 
   public create(request: CreateCatRequest): Observable<any> {
@@ -19,6 +21,12 @@ export class CatService {
         'Content-Type': 'application/json'
       })
     }).pipe(
+      catchError(this.handleError)
+    );
+  }
+
+  public readAll(): Observable<any> {
+    return this.httpClient.get(this.apiReadURL.concat('/api/read')).pipe(
       catchError(this.handleError)
     );
   }

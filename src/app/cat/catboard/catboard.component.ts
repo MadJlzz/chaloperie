@@ -1,8 +1,8 @@
 import { BreakpointObserver } from '@angular/cdk/layout';
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { Subscription } from 'rxjs';
+import { CatService } from '../../core-providers/cat.service';
 import { Layout } from '../../shared/enums/layout.enum';
-import { CATS } from '../cat.mock';
 import { Cat } from '../cat.model';
 
 @Component({
@@ -15,7 +15,10 @@ export class CatboardComponent implements OnInit, OnDestroy {
   private layoutChangeValue;
   private layoutChangeSubscription: Subscription;
 
-  constructor(private readonly breakpointObserver: BreakpointObserver) {
+  private currentCats: Cat[];
+  private currentCatsSubscription: Subscription;
+
+  constructor(private readonly breakpointObserver: BreakpointObserver, private readonly catService: CatService) {
   }
 
   ngOnInit(): void {
@@ -29,14 +32,21 @@ export class CatboardComponent implements OnInit, OnDestroy {
         .find(([mediaQuery, matched]) => matched === true);
       this.layoutChangeValue = Layout.from(breakpoint[0]);
     });
+
+    this.currentCatsSubscription = this.catService.readAll().subscribe(
+      value => {
+        this.currentCats = value.cats;
+      }
+    );
   }
 
   ngOnDestroy(): void {
     this.layoutChangeSubscription.unsubscribe();
+    this.currentCatsSubscription.unsubscribe();
   }
 
   public cats(): Cat[] {
-    return CATS;
+    return this.currentCats;
   }
 
 }

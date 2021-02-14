@@ -6,7 +6,7 @@ export interface CreateCatRequest {
 
 export interface Cat {
   title: string;
-  pictureUrl: string;
-  date: string;
+  pictureURL: string;
+  datetime: string;
   description?: string;
 }
