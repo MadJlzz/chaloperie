@@ -48,6 +48,8 @@ export class CatAddComponent {
    */
   imageControl = new FormControl('', Validators.required);
 
+  private savingInProgress = false;
+
   constructor(private readonly formBuilder: FormBuilder, private readonly catService: CatService,
               private readonly snackBar: MatSnackBar, private readonly dialog: MatDialog) {
     this.form = this.formBuilder.group({
@@ -55,6 +57,10 @@ export class CatAddComponent {
       descriptionControl: this.descriptionControl,
       imageControl: this.imageControl,
     });
+  }
+
+  get isSavingNewCat(): boolean {
+    return this.savingInProgress;
   }
 
   onFileChange($event: any): void {
@@ -74,6 +80,7 @@ export class CatAddComponent {
   }
 
   onSubmit(): void {
+    this.savingInProgress = true;
     this.catService.create(
       {
         title: this.titleControl.value,
@@ -81,8 +88,15 @@ export class CatAddComponent {
         pictureURL: this.imageControl.value
       }
     ).subscribe(
-      value => console.log('Success!'),
-      error => this.snackBar.open(error, 'Ok', {duration: 2000})
+      value => {
+        this.savingInProgress = false;
+        this.form.reset();
+        this.snackBar.open('You\'re 🐱 has been saved!', 'Maw', {duration: 2000});
+      },
+      error => {
+        this.savingInProgress = false;
+        this.snackBar.open(error, 'Ok', {duration: 2000})
+      }
     );
   }
 }
